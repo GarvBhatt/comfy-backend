@@ -34,7 +34,7 @@ const port = process.env.PORT || 8080;
 dotenv.config();
 
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect("mongodb+srv://GarvBhatt:cx2M7F7OS0DShiVN@ourfurniturec.4jylnil.mongodb.net/?retryWrites=true&w=majority")
   .then(() => {
     console.log("DB is connected");
     app.listen(port, () => {
@@ -46,7 +46,7 @@ mongoose
 app.use(
   cors({
     credentials: true,
-    origin: ["https://comfy-frontend.vercel.app"],
+    origin: 'http://localhost:3000',
   })
 );
 

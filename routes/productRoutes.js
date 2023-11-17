@@ -8,13 +8,16 @@ const { isAdmin, verifyToken } = require("../middlewares/authMw");
 
 const router = express.Router();
 
+const path = require("path");
+
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
     if (file && !file.mimetype.startsWith("image")) {
       callback(new Error("invalid image type"));
       return;
     }
-    callback(null, "./uploads/products/");
+    const destinationPath = path.join(__dirname, "..", "uploads", "products");
+    callback(null, destinationPath);
   },
   filename: (req, file, callback) => {
     callback(null, file.originalname);

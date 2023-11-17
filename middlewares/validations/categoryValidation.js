@@ -13,7 +13,6 @@ const validateUploadedImages = ((value, { req }) => {
 exports.postValidation=[
     body("name").isString().withMessage('name must be string'),
     check("image").custom(validateUploadedImages)   
-
 ]
 
 exports.updateValidation=[

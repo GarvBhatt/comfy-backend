@@ -4,7 +4,7 @@ exports.POSTValidation = [
   body("userId").isMongoId().withMessage("userId  must be objectId"),
   body("items").isArray().withMessage("enter   array "),
   body("phone")
-    .isMobilePhone("ar-EG")
+    .isMobilePhone("en-IN")
     .withMessage("Please enter a valid Egyptian phone number."),
 
   body("address").isObject().withMessage("address must be object"),
