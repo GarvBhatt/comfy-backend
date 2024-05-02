@@ -40,7 +40,10 @@ mongoose
     app.listen(port, () => {
       console.log("Up and listenin to port", port);
     });
+  }).catch((e)=>{
+    console.log(e);
   })
+
   .catch((error) => console.log("Error in DB " + error));
 
 app.use(

@@ -7,18 +7,17 @@ const User = mongoose.model("users");
 
 module.exports.login = (req, res, next) => {
   let token;
-  console.log(process.env.secretKey);
   // Check if admin
   if (
-    req.body.email === process.env.adminEmail &&
-    req.body.password === process.env.adminPass
+    req.body.email === "kunalsoniwert@gmail.com" &&
+    req.body.password === "1234Garv1@1"
     ) {
       token = jwt.sign(
         {
-          email: process.env.adminEmail,
+          email: "kunalsoniwert@gmail.com",
           role: "admin",
         },
-        process.env.secretKey,
+        "gW3UeTC7VeZp7MS2yvGzgRp6m9EgSYGnJQf2q6mLnMtbDvBBrpJqEpxb25vDwT6",
         { expiresIn: "6h" }
         );
         res.status(200).json({ data: "ok", token });
@@ -39,7 +38,7 @@ module.exports.login = (req, res, next) => {
           id: userObj._id,
           role: "user",
         },
-        process.env.secretKey,
+        "gW3UeTC7VeZp7MS2yvGzgRp6m9EgSYGnJQf2q6mLnMtbDvBBrpJqEpxb25vDwT6",
         { expiresIn: "6h" }
         );
         res.status(200).json({ data: "ok", token });
